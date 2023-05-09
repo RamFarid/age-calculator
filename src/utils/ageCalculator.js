@@ -59,9 +59,4 @@ export function getUpComingBirthDay({ day, month }) {
   return upcomingsBirthDays
 }
 
-export function parseNumbersToTenths(no) {
-  return no.toLocaleString('en-US', {
-    minimumIntegerDigits: 2,
-    useGrouping: false,
-  })
-}
+export const parseNumbersToTenths = (no) => (no < 10 ? `0${no}` : no)

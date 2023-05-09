@@ -49,13 +49,32 @@ function Extras({ finalDate, birthday }) {
                   display={'flex'}
                   justifyContent={'space-between'}
                   alignItems={'center'}
+                  component={'div'}
                 >
-                  <Typography component={'span'} color={'text.secondary'}>{`${
-                    birthday.day
-                  } ${allMonths[birthday.month - 1]} ${
+                  <Typography
+                    component={'span'}
+                    color={'text.secondary'}
+                    fontSize={(theme) => {
+                      return {
+                        [theme.breakpoints.down('md')]: {
+                          fontSize: '10px',
+                        },
+                      }
+                    }}
+                  >{`${birthday.day} ${allMonths[birthday.month - 1]} ${
                     day.actualYear
                   }`}</Typography>
-                  <Typography component={'span'} fontWeight={400}>
+                  <Typography
+                    component={'span'}
+                    fontWeight={400}
+                    fontSize={(theme) => {
+                      return {
+                        [theme.breakpoints.down('md')]: {
+                          fontSize: '10px',
+                        },
+                      }
+                    }}
+                  >
                     {day.dayName}
                   </Typography>
                 </Typography>
