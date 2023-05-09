@@ -45,9 +45,7 @@ export function getUpComingBirthDay({ day, month }) {
   let upcomingsBirthDays = []
   for (let i = 0; i < 11; i++) {
     const nextBirthDay = new Date(
-      `${parseNumbersToTenths(month)}-${parseNumbersToTenths(day)}-${
-        upcomingYear + i
-      }`
+      `${upcomingYear + i}-${parseNumbersToTenths(month)}-${parseNumbersToTenths(day)}`
     )
     const date = ageCalculator(nextBirthDay.getTime(), true)
     upcomingsBirthDays.push({
