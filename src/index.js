@@ -9,12 +9,6 @@ import theme from './theme/theme'
 const globalStyles = (
   <GlobalStyles
     styles={(theme) => ({
-      // '*': {},
-      // ul: {
-      //   listStyle: 'none',
-      //   margin: 'unset',
-      //   marginY: 0,
-      // },
       'input::-webkit-outer-spin-button,input::-webkit-inner-spin-button': {
         WebkitAppearance: 'none',
       },

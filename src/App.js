@@ -55,9 +55,9 @@ function App() {
     const values = Object.values(birthday)
     if (!values.some((el) => el === '') && birthday.year >= 1900) {
       const finallyDate = ageCalculator(
-        `${parseNumbersToTenths(birthday.month)}-${parseNumbersToTenths(
-          birthday.day
-        )}-${parseNumbersToTenths(birthday.year)}`
+        `${parseNumbersToTenths(birthday.year)}-${parseNumbersToTenths(
+          birthday.month
+        )}-${parseNumbersToTenths(birthday.day)}`
       )
       const upcomingBirthDays = getUpComingBirthDay(birthday)
       console.log({ upcoming: upcomingBirthDays, age: finallyDate })

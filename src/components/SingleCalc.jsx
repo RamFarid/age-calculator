@@ -4,7 +4,17 @@ function SingleCalc({ txt, num }) {
   const styles = useMemo(
     () => ({
       container: {
-        fontSize: '62px',
+        fontSize: (theme) => ({
+          [theme.breakpoints.up('md')]: {
+            fontSize: '62px',
+          },
+          [theme.breakpoints.down('md')]: {
+            fontSize: '52px',
+          },
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '42px',
+          },
+        }),
         fontStyle: 'italic',
         fontWeight: 800,
       },
