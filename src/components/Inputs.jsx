@@ -2,9 +2,11 @@ import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import React, { useMemo } from 'react'
 import { useTheme } from '@mui/material/styles'
+import { useBirthDate } from '../Contexts/BirthsDateContext'
 
-function Inputs({ birthday, setBirthday, error }) {
+function Inputs() {
   const theme = useTheme()
+  const { birthday, error, setBirthday } = useBirthDate()
 
   const handleChange = (e) => {
     const current = new Date()

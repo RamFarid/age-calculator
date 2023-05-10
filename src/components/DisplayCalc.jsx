@@ -1,19 +1,37 @@
 import Box from '@mui/material/Box'
-import React from 'react'
+import React, { memo } from 'react'
 import SingleCalc from './SingleCalc'
 import Extras from './Extras'
+import { useAge } from '../Contexts/AgeContext'
 
-function DisplayCalc({ finalDate, birthday }) {
+function DisplayCalc() {
+  const { finalDate } = useAge()
   return (
     <Box>
-      <SingleCalc txt='Years' num={finalDate.age.year} />
-      <SingleCalc txt='Months' num={finalDate.age.month} />
-      <SingleCalc txt='Days' num={finalDate.age.day} />
-      {finalDate.upcoming.length ? (
-        <Extras finalDate={finalDate} birthday={birthday} />
+      {finalDate?.age ? (
+        <>
+          <SingleCalc
+            txt='Years'
+            num={finalDate.age.year}
+            _key={Math.random()}
+          />
+          <SingleCalc
+            txt='Months'
+            num={finalDate.age.month}
+            countDelay={0.6}
+            _key={Math.random()}
+          />
+          <SingleCalc
+            txt='Days'
+            num={finalDate.age.day}
+            countDelay={1.2}
+            _key={Math.random()}
+          />
+        </>
       ) : null}
+      {finalDate.upcoming.length ? <Extras /> : null}
     </Box>
   )
 }
 
-export default DisplayCalc
+export default memo(DisplayCalc)

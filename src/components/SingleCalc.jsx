@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import Box from '@mui/material/Box'
-function SingleCalc({ txt, num }) {
+import CountUp from 'react-countup'
+
+function SingleCalc({ txt, num, countDelay, _key }) {
   const styles = useMemo(
     () => ({
       container: {
@@ -30,7 +32,17 @@ function SingleCalc({ txt, num }) {
   return (
     <Box sx={styles.container}>
       <Box component={'span'} sx={styles.actualNum}>
-        {num === null ? '- -' : num}
+        {num === null ? (
+          '- -'
+        ) : (
+          <CountUp
+            end={num}
+            duration={0.6}
+            key={_key}
+            useEasing={false}
+            delay={countDelay ? countDelay : false}
+          />
+        )}
       </Box>
       <Box component={'span'} sx={styles.type}>
         {` ${txt}`}

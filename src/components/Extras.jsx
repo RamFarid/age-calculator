@@ -9,8 +9,12 @@ import { MdExpandMore } from 'react-icons/md'
 import NextBirthDaySingleItem from './NextBirthDaySingleItem'
 import { allMonths } from '../utils/ageCalculator'
 import Divider from '@mui/material/Divider'
+import { useAge } from '../Contexts/AgeContext'
+import { useBirthDate } from '../Contexts/BirthsDateContext'
 
-function Extras({ finalDate, birthday }) {
+function Extras() {
+  const { birthday } = useBirthDate()
+  const { finalDate } = useAge()
   return (
     <Accordion
       sx={{

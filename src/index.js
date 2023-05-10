@@ -5,6 +5,8 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material'
 import theme from './theme/theme'
+import BirthsDateProvider from './Contexts/BirthsDateContext'
+import AgeProvider from './Contexts/AgeContext'
 
 const globalStyles = (
   <GlobalStyles
@@ -26,11 +28,15 @@ const globalStyles = (
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {globalStyles}
-      <App />
-    </ThemeProvider>
+    <AgeProvider>
+      <BirthsDateProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {globalStyles}
+          <App />
+        </ThemeProvider>
+      </BirthsDateProvider>
+    </AgeProvider>
   </React.StrictMode>
 )
 

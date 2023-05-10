@@ -3,8 +3,10 @@ import Divider from '@mui/material/Divider'
 import React from 'react'
 import { CalcBtn } from '../utils/CustomMUIComponents'
 import { MdOutlineSwapVerticalCircle } from 'react-icons/md'
+import { useBirthDate } from '../Contexts/BirthsDateContext'
 
-function Separator({ onClick }) {
+function Separator() {
+  const { claculateDate } = useBirthDate()
   return (
     <Stack
       position={'relative'}
@@ -12,7 +14,7 @@ function Separator({ onClick }) {
       justifyContent={'center'}
       alignItems={'center'}
     >
-      <CalcBtn onClick={onClick}>
+      <CalcBtn onClick={claculateDate}>
         <MdOutlineSwapVerticalCircle />
       </CalcBtn>
       <Divider flexItem />
