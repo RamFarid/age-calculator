@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box'
 import React, { memo } from 'react'
 import SingleCalc from './SingleCalc'
-import Extras from './Extras'
 import { useAge } from '../Contexts/AgeContext'
 
 function DisplayCalc() {
@@ -29,7 +28,6 @@ function DisplayCalc() {
           />
         </>
       ) : null}
-      {finalDate.upcoming.length ? <Extras /> : null}
     </Box>
   )
 }
