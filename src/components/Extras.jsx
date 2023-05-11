@@ -54,9 +54,9 @@ function Extras() {
             <Typography component={'h5'} color='text.secondary'>
               Up coming birthdays
             </Typography>
-            <ul>
+            <Box component={'ul'}>
               {finalDate.upcoming.map((day, i) => (
-                <li key={i}>
+                <Box key={i} component={'li'}>
                   <Typography
                     display={'flex'}
                     justifyContent={'space-between'}
@@ -90,9 +90,9 @@ function Extras() {
                       {day.dayName}
                     </Typography>
                   </Typography>
-                </li>
+                </Box>
               ))}
-            </ul>
+            </Box>
           </Box>
         </AccordionDetails>
       </Accordion>

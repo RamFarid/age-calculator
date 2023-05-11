@@ -7,7 +7,7 @@ export function ageCalculator(birth, isReverse = false) {
   const age = new Date(diff)
   const years = age.getFullYear() - 1970
   const months = age.getMonth()
-  const days = age.getDate() - 1
+  const days = isReverse ? age.getDate() : age.getDate() - 1
   return { year: years, month: months, day: days }
 }
 
@@ -45,7 +45,9 @@ export function getUpComingBirthDay({ day, month }) {
   let upcomingsBirthDays = []
   for (let i = 0; i < 11; i++) {
     const nextBirthDay = new Date(
-      `${upcomingYear + i}-${parseNumbersToTenths(month)}-${parseNumbersToTenths(day)}`
+      `${upcomingYear + i}-${parseNumbersToTenths(
+        month
+      )}-${parseNumbersToTenths(day)}`
     )
     const date = ageCalculator(nextBirthDay.getTime(), true)
     upcomingsBirthDays.push({

@@ -11,6 +11,10 @@ function Inputs() {
   const handleChange = (e) => {
     const current = new Date()
     const { name, value } = e.target
+    if (name === 'day' && value !== '' && birthday.month === '2' && value > 28)
+      return
+    if (name === 'month' && value !== '' && value === '2' && birthday.day > 28)
+      return
     if (name === 'month' && value !== '' && (value > 12 || value < 1)) return
     if (name === 'day' && value !== '' && (value > 31 || value < 1)) return
     if (name === 'year' && value !== '' && value > current.getFullYear()) return
